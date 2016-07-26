@@ -24,7 +24,7 @@ rm -rf \
     /usr/local/bin/mm-trace
 
 # Install java
-yum install -y java-1.8.0-openjdk-headless
+yum install -y java-1.7.0-openjdk-headless
 
 # Install Zookeeper
 yum install -y zookeeper zkdump nmap-ncat
