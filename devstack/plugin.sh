@@ -41,7 +41,7 @@ if [[ "$1" == "stack" ]]; then
 
         ln -sf /var/log/midolman/midolman.log ${LOGDIR}
         ln -sf /var/log/midonet-cluster/midonet-cluster.log ${LOGDIR}
-        $ABSOLUTE_PATH/configure_and_start_midonet_1.9.sh
+        sudo $ABSOLUTE_PATH/configure_and_start_midonet_1.9.sh
 
         sudo cp $ABSOLUTE_PATH/midonet_rootwrap.filters /etc/neutron/rootwrap.d/
         neutron-db-manage --subproject networking-midonet upgrade head

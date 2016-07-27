@@ -32,7 +32,7 @@ fi
 
 # Save the top directory and source the functions and midorc
 TOP_DIR=$(cd $(dirname "$0") && pwd)
-source /opt/stack/magic/devstack/functions
+source /opt/stack/midopkgi/devstack/functions
 
 HOST_NET='172.19.0.0/30'
 HOST_IP_1='172.19.0.1'

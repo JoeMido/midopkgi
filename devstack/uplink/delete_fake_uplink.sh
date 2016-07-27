@@ -30,7 +30,7 @@ fi
 
 # Save the top directory and source the functions and midorc
 TOP_DIR=$(cd $(dirname "$0") && pwd)
-source /opt/stack/magic/devstack/functions
+source /opt/stack/midopkgi/devstack/functions
 
 set -x
 

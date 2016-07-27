@@ -68,14 +68,16 @@ sudo sed -i -e "s/tomcat7/tomcat/g" $API_FILE
 sudo sed -i -e "s%http://localhost:8080/midonet-api%$API_URI%g" $API_FILE
 sudo sed -i -e "s/org.midonet.api.auth.keystone.v2_0.KeystoneService/org.midonet.cluster.auth.MockAuthService/g" $API_FILE
 
-#sudo cat > /etc/tomcat/Catalina/localhost/midonet-api.xml <<EOL
-#<Context
-#    path="/midonet-api"
-#    docBase="/usr/share/midonet-api"
-#    antiResourceLocking="false"
-#    privileged="true"
-#/>
-#EOL
+sudo cat > /etc/tomcat/Catalina/localhost/midonet-api.xml <<EOL
+<Context
+    path="/midonet-api"
+    docBase="/usr/share/midonet-api"
+    antiResourceLocking="false"
+    privileged="true"
+/>
+EOL
+
+sudo echo 'JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Xms512m -Xmx1024m -XX:MaxPermSize=256m"' >> /etc/sysconfig/tomcat
 sudo service tomcat restart
 
 ## Midonet CLI
