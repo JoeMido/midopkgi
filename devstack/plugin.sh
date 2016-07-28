@@ -6,7 +6,7 @@ if [[ "$1" == "stack" ]]; then
     if [[ "$2" == "pre-install" ]]; then
         source $ABSOLUTE_PATH/functions
         source $ABSOLUTE_PATH/$Q_PLUGIN/functions
-        sudo $ABSOLUTE_PATH/configure_repo_yum.sh
+        sudo $ABSOLUTE_PATH/configure_repo_yum.sh $REPO_USER $REPO_PWD
     elif [[ "$2" == "install" ]]; then
         sudo $ABSOLUTE_PATH/install_pkgs_yum.sh
     elif [[ "$2" == "extra" ]]; then

@@ -18,14 +18,18 @@
 # https://docs.midonet.org/docs/latest-en/quick-start-guide/rhel-7_kilo-rdo/content/_repository_configuration.html
 
 # Enable repository prioritization
-yum install -y yum-plugin-priorities
+set -o xtrace
+sudo yum install -y yum-plugin-priorities
 
 # Enable EPEL repo
-yum install -y http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-7.noarch.rpm
+sudo yum install -y http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-7.noarch.rpm || true
+
+REPO_USER=$1
+REPO_PWD=$2
 
 # Configure DataStax repository
 
-cat > /etc/yum.repos.d/datastax.repo <<EOL
+sudo cat > /etc/yum.repos.d/datastax.repo <<EOL
 # DataStax (Apache Cassandra)
 [datastax]
 name = DataStax Repo for Apache Cassandra
@@ -37,7 +41,7 @@ EOL
 
 # Configure MidoNet repositories
 
-cat > /etc/yum.repos.d/midonet.repo <<EOL
+sudo cat > /etc/yum.repos.d/midonet.repo <<EOL
 [mem]
 name=MEM
 baseurl=http://$REPO_USER:$REPO_PWD@yum.midokura.com/repo/v1.9/stable/RHEL/7/
